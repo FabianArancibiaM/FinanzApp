@@ -1,9 +1,7 @@
-import 'package:finance_now/providers/financial_movement.dart';
 import 'package:flutter/material.dart';
 
 import 'package:animate_do/animate_do.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 
 import '../widgets/index.dart';
 
@@ -13,10 +11,16 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = <ItemBoton>[
-      ItemBoton(FontAwesomeIcons.handHoldingDollar, 'Rendimiento Financiero',
+      ItemBoton(FontAwesomeIcons.handHoldingDollar, 'Resumen del mes',
           const Color(0xff6989F5), const Color(0xff906EF5), 'financial-sumary'),
       ItemBoton(FontAwesomeIcons.sackDollar, 'Agregar Movimiento',
           const Color(0xff317183), const Color(0xff46997D), 'form-mevement'),
+      ItemBoton(
+          FontAwesomeIcons.chartPie,
+          'Graficos',
+          Color.fromARGB(255, 131, 89, 49),
+          Color.fromARGB(255, 124, 153, 70),
+          'graphics'),
     ];
 
     List<Widget> itemMap = items
@@ -38,15 +42,10 @@ class MenuScreen extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(top: 200),
+            margin: const EdgeInsets.only(top: 100),
             child: ListView(
-              physics: BouncingScrollPhysics(),
-              children: <Widget>[
-                SizedBox(
-                  height: 80,
-                ),
-                ...itemMap
-              ],
+              physics: const BouncingScrollPhysics(),
+              children: <Widget>[const SizedBox(height: 80), ...itemMap],
             ),
           ),
           _Encabezado()
@@ -61,7 +60,7 @@ class _Encabezado extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        IconHeader(
+        const IconHeader(
           icon: FontAwesomeIcons.moneyBill1,
           titulo: 'Bienvenid@',
           subtitulo: 'Tus finanzas',
@@ -75,9 +74,9 @@ class _Encabezado extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, 'home');
                 },
-                shape: CircleBorder(),
-                padding: EdgeInsets.all(15.0),
-                child: FaIcon(FontAwesomeIcons.rightFromBracket,
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(15.0),
+                child: const FaIcon(FontAwesomeIcons.rightFromBracket,
                     color: Colors.white)))
       ],
     );

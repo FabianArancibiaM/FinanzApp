@@ -27,7 +27,8 @@ class _FormMovementScreenState extends State<FormMovementScreen> {
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 50, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
                 child: Center(
                   child: Column(
                     children: [
@@ -136,6 +137,22 @@ class _RegisterForm extends StatelessWidget {
               height: 20,
             ),
             FilledButton.tonalIcon(
+                style: ButtonStyle(
+                  textStyle: MaterialStateProperty.all<TextStyle>(
+                    TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                    EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  ),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  overlayColor: MaterialStateProperty.all<Color>(Colors.grey),
+                ),
                 onPressed: () {
                   if (movementCubi.state.formStatus == FormStatus.validating) {
                     return;
@@ -177,18 +194,50 @@ class _RegisterForm extends StatelessWidget {
                       : null,
                 )),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
-            // FilledButton.tonalIcon(
-            //     onPressed: () {
-            //       Navigator.pushNamed(context, 'financial-sumary');
-            //     },
-            //     icon: const Icon(Icons.incomplete_circle_rounded),
-            //     label: const Text('Ver resumen')),
-            // const SizedBox(
-            //   height: 20,
-            // ),
             FilledButton.tonalIcon(
+                style: ButtonStyle(
+                  textStyle: MaterialStateProperty.all<TextStyle>(
+                    TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                    EdgeInsets.symmetric(horizontal: 75, vertical: 10),
+                  ),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  overlayColor: MaterialStateProperty.all<Color>(Colors.grey),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'financial-sumary');
+                },
+                icon: const Icon(Icons.incomplete_circle_rounded),
+                label: const Text('Ver resumen')),
+            const SizedBox(
+              height: 10,
+            ),
+            FilledButton.tonalIcon(
+                style: ButtonStyle(
+                  textStyle: MaterialStateProperty.all<TextStyle>(
+                    TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                    EdgeInsets.symmetric(horizontal: 70, vertical: 10),
+                  ),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  overlayColor: MaterialStateProperty.all<Color>(Colors.grey),
+                ),
                 onPressed: () async {
                   spinnerShow = true;
                   print(financialProvider.period);
@@ -196,7 +245,7 @@ class _RegisterForm extends StatelessWidget {
                   financialProvider.setPeriod();
                   print(financialProvider.period);
                 },
-                icon: const Icon(Icons.incomplete_circle_rounded),
+                icon: const Icon(Icons.restore),
                 label: const Text('Nuevo periodo')),
           ],
         ))

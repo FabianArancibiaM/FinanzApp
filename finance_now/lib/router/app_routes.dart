@@ -1,7 +1,8 @@
 import 'package:finance_now/screens/financial/details_financial_screen.dart';
 import 'package:finance_now/screens/financial/financial_summary_screen.dart';
 import 'package:finance_now/screens/form_movement_screen.dart';
-import 'package:finance_now/screens/form_screen.dart';
+import 'package:finance_now/screens/graphics_movement/category_screen.dart';
+import 'package:finance_now/screens/graphics_screen.dart';
 import 'package:finance_now/screens/home_screen.dart';
 import 'package:finance_now/screens/menu_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,8 @@ class AppRoutes {
       'menu': (_) => const MenuScreen(),
       'financial-sumary': (_) => FinancialSummaryScreen(),
       'home': (_) => HomeScreen(),
-      'form': (_) => FormScreen(),
+      'graphics': (_) => const GraphicsScreen(),
+      'graphics-category': (_) => CategoryScreen(),
       'form-mevement': (_) => const FormMovementScreen(),
       'details-financial': (_) => const DetailsFinancialScreen(),
     };

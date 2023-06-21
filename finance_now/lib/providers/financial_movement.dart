@@ -60,8 +60,6 @@ class FinancialMovement extends ChangeNotifier {
   }
 
   List<FinancialDataModel> getAllMovementMonth() {
-    final now = DateTime.now();
-    final currentMonth = now.month;
     return list.toList();
   }
 }
