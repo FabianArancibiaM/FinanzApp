@@ -17,7 +17,7 @@ class GraphicsScreen extends StatelessWidget {
           const Color(0xff906EF5),
           'graphics-category'),
       ItemBoton(FontAwesomeIcons.chartLine, 'Ultimos 5 periodos',
-          const Color(0xff317183), const Color(0xff46997D), 'form-mevement'),
+          const Color(0xff317183), const Color(0xff46997D), 'graphics-demo'),
     ];
 
     List<Widget> itemMap = items

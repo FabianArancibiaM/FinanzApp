@@ -2,8 +2,8 @@ import 'package:finance_now/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
-class GraphicsScreen extends StatelessWidget {
-  GraphicsScreen({Key? key}) : super(key: key);
+class GraphicsScreenDemo extends StatelessWidget {
+  GraphicsScreenDemo({Key? key}) : super(key: key);
 
   final List<charts.Series<dynamic, String>> seriesList = [
     charts.Series<dynamic, String>(

@@ -61,6 +61,7 @@ class PieChartSumary extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 1,
           child: SfCircularChart(
+            tooltipBehavior: TooltipBehavior(enable: true),
             series: <CircularSeries>[
               PieSeries<ChartData, String>(
                 dataSource: createData(financialProvider),

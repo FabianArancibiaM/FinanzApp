@@ -16,6 +16,12 @@ class MenuScreen extends StatelessWidget {
       ItemBoton(FontAwesomeIcons.sackDollar, 'Agregar Movimiento',
           const Color(0xff317183), const Color(0xff46997D), 'form-mevement'),
       ItemBoton(
+          FontAwesomeIcons.list,
+          'Añadir categoria',
+          Color.fromARGB(255, 52, 49, 131),
+          Color.fromARGB(255, 142, 153, 70),
+          'form-category'),
+      ItemBoton(
           FontAwesomeIcons.chartPie,
           'Graficos',
           Color.fromARGB(255, 131, 89, 49),

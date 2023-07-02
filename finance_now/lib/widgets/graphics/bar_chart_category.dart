@@ -19,7 +19,16 @@ class BarChartCategory extends StatelessWidget {
     late TooltipBehavior _tooltip;
     data = [];
     data2 = [];
-    _tooltip = TooltipBehavior(enable: true);
+    _tooltip = TooltipBehavior(
+      enable: true,
+      tooltipPosition: TooltipPosition.pointer,
+      format: 'point.y',
+      // builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
+      //     int seriesIndex) {
+      //   return Container(
+      //       child: Text('PointIndex : ${pointIndex.toString()}'));
+      // }
+    );
     var maxAmount = 0;
 
     return Consumer<FinancialMovement>(
@@ -47,15 +56,6 @@ class BarChartCategory extends StatelessWidget {
         child: Expanded(
           child: SfCartesianChart(
               primaryXAxis: CategoryAxis(),
-              primaryYAxis: NumericAxis(
-                  minimum: 1000,
-                  maximum: maxAmount.toDouble(),
-                  interval: 100000,
-                  numberFormat: NumberFormat.currency(
-                    locale: 'es_CL',
-                    symbol: '',
-                    decimalDigits: 0,
-                  )),
               tooltipBehavior: _tooltip,
               series: <ChartSeries<_ChartData, String>>[
                 ColumnSeries<_ChartData, String>(

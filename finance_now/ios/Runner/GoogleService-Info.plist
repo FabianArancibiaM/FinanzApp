@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1067925968538-9ptlqt06sdt07pbifjev3cdtc770eo4q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1067925968538-9ptlqt06sdt07pbifjev3cdtc770eo4q</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBNjQv2hMGgVCKba1oWIn5Mxj3UmnYWTmE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1067925968538</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.financeNow</string>
+	<key>PROJECT_ID</key>
+	<string>bot-v1-e524e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bot-v1-e524e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1067925968538:ios:125bf069c10c4f821f3123</string>
+	<key>DATABASE_URL</key>
+	<string>https://bot-v1-e524e.firebaseio.com</string>
+</dict>
+</plist>

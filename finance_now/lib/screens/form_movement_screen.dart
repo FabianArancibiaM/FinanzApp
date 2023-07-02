@@ -19,7 +19,7 @@ class _FormMovementScreenState extends State<FormMovementScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Formulario'),
+        title: const Text('Formulario'),
       ),
       body: BlocProvider(
           create: (context) => MovementCubit(),

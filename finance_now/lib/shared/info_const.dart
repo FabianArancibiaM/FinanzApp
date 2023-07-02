@@ -18,22 +18,4 @@ class InfoConst {
     SelectorObject(key: 'A', value: 'Abono'),
     SelectorObject(key: 'D', value: 'Descuento')
   ];
-
-  // paleta de colores
-  // Azul:
-  //   Azul principal: #007BFF
-  //   Azul claro: #B3E5FC
-  //   Azul oscuro: #003E9C
-  // Verde:
-  //   Verde principal: #00C853
-  //   Verde claro: #DCEDC8
-  //   Verde oscuro: #007E33
-  // Gris:
-  //   Gris principal: #757575
-  //   Gris claro: #E0E0E0
-  //   Gris oscuro: #424242
-  // Blanco:
-  //   Blanco principal: #FFFFFF
-  // Negro:
-  //   Negro principal: #000000
 }

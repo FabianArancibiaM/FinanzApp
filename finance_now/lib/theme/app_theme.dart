@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 
+//
+// #6A32C5
+// #0063ED
+// #0081F8
+// #0097E7
+// #00A8C4
+// #00B698
+
 class AppTheme {
-  static const Color primary = Colors.green;
+  static const Color primary = Color(0xFF6A32C5);
 
   static final ThemeData ligthTheme = ThemeData.light().copyWith(
-      colorScheme: ColorScheme.light(
-          primary: Colors.green,
-          secondary: Colors.blue,
-          background: Colors.teal.shade100,
+      colorScheme: const ColorScheme.light(
+          primary: primary,
+          secondary: Color(0xFF0063ED),
+          background: Color(0xFF00A8C4),
           surface: Colors.white,
           error: Colors.red,
           onPrimary: Colors.white,
@@ -18,7 +26,7 @@ class AppTheme {
           brightness: Brightness.light),
       primaryColor: primary,
       // AppBar theme
-      appBarTheme: const AppBarTheme(color: primary, elevation: 0),
+      appBarTheme: const AppBarTheme(color: Colors.transparent, elevation: 0),
       scaffoldBackgroundColor: Colors.teal.shade100,
 
       // TextButton theme

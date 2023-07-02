@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1067925968538",
+    "firebase_url": "https://bot-v1-e524e.firebaseio.com",
+    "project_id": "bot-v1-e524e",
+    "storage_bucket": "bot-v1-e524e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067925968538:android:993c55f7a541d3aa1f3123",
+        "android_client_info": {
+          "package_name": "com.example.finance_now"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067925968538-5sbrujde4114paelvb46p3f2ok6igebj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6qSaN_SaBAr5dIzSMprULlubGlIldM5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067925968538-5sbrujde4114paelvb46p3f2ok6igebj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
