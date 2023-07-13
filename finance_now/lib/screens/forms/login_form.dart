@@ -19,7 +19,7 @@ class _LoginFormsState extends State<LoginForms> {
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: Container(
-          padding: EdgeInsets.only(bottom: 50, left: 10, right: 10),
+          padding: const EdgeInsets.only(bottom: 50, left: 10, right: 10),
           child: const _FormContain()),
     );
   }
@@ -58,18 +58,18 @@ class _FormContain extends StatelessWidget {
                 errorMessage: description.errorMessages,
                 stateForm: loginCubi.state.formStatus,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               FilledButton.tonalIcon(
                   style: ButtonStyle(
                     textStyle: MaterialStateProperty.all<TextStyle>(
-                      TextStyle(fontSize: 16, color: Colors.white),
+                      const TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.blue),
                     padding: MaterialStateProperty.all<EdgeInsets>(
-                      EdgeInsets.symmetric(horizontal: 70, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
                     ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(

@@ -1,100 +1,181 @@
 import 'package:flutter/material.dart';
-
-import 'package:animate_do/animate_do.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../widgets/index.dart';
-
 class MenuScreen extends StatelessWidget {
-  const MenuScreen({super.key});
+  const MenuScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final items = <ItemBoton>[
-      ItemBoton(FontAwesomeIcons.handHoldingDollar, 'Resumen del mes',
-          const Color(0xff6989F5), const Color(0xff906EF5), 'financial-sumary'),
-      ItemBoton(FontAwesomeIcons.sackDollar, 'Agregar Movimiento',
-          const Color(0xff317183), const Color(0xff46997D), 'form-mevement'),
-      ItemBoton(
-          FontAwesomeIcons.list,
-          'Añadir categoria',
-          Color.fromARGB(255, 52, 49, 131),
-          Color.fromARGB(255, 142, 153, 70),
-          'form-category'),
-      ItemBoton(
-          FontAwesomeIcons.chartPie,
-          'Graficos',
-          Color.fromARGB(255, 131, 89, 49),
-          Color.fromARGB(255, 124, 153, 70),
-          'graphics'),
-    ];
-
-    List<Widget> itemMap = items
-        .map((item) => FadeInLeft(
-              duration: const Duration(milliseconds: 250),
-              child: BotonGordo(
-                icon: item.icon,
-                texto: item.texto,
-                color1: item.color1,
-                color2: item.color2,
-                onPress: () {
-                  Navigator.pushNamed(context, item.widgetTo);
-                },
-              ),
-            ))
-        .toList();
-
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(top: 100),
-            child: ListView(
-              physics: const BouncingScrollPhysics(),
-              children: <Widget>[const SizedBox(height: 80), ...itemMap],
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 250,
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              offset: const Offset(4, 6),
+                              blurRadius: 10),
+                        ],
+                        borderRadius: BorderRadius.circular(15),
+                        gradient: const LinearGradient(colors: <Color>[
+                          Colors.deepPurpleAccent,
+                          Color.fromARGB(255, 58, 7, 179),
+                        ])),
+                    height: 150,
+                    padding: const EdgeInsets.only(top: 15),
+                    margin: const EdgeInsets.only(left: 10, right: 10, top: 30),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.person_rounded,
+                              size: 80,
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            const Text('Fabian Arancibia'),
+                            const Spacer(),
+                            RawMaterialButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'home');
+                                },
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15.0),
+                                child: const FaIcon(
+                                    FontAwesomeIcons.rightFromBracket,
+                                    color: Colors.black)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                      top: 130,
+                      left: 50,
+                      child: Container(
+                        height: 100,
+                        width: 250,
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        padding: const EdgeInsets.only(top: 20, left: 20),
+                        decoration: BoxDecoration(
+                            boxShadow: <BoxShadow>[
+                              BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  offset: const Offset(4, 6),
+                                  blurRadius: 10),
+                            ],
+                            borderRadius: BorderRadius.circular(15),
+                            gradient: LinearGradient(colors: [
+                              Color.fromARGB(255, 58, 7, 179),
+                              Colors.deepPurpleAccent.shade700,
+                            ])),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Cartera Total: \$213.123.123',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Text(
+                              'Disponible mes: \$213.123.123',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Text(
+                              'Gasto: \$213.123.123',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ))
+                ],
+              ),
             ),
-          ),
-          _Encabezado()
-        ],
+            const Text('Menú'),
+            const SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      ContainerCard(
+                          icon: Icons.monetization_on_sharp,
+                          router: 'financial-sumary',
+                          text: 'Resumen'),
+                      ContainerCard(
+                          icon: Icons.add_chart,
+                          router: 'form-mevement',
+                          text: 'Nuevo Movimiento'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      ContainerCard(
+                          icon: Icons.bar_chart_sharp,
+                          router: 'graphics',
+                          text: 'Graficos'),
+                      ContainerCard(icon: Icons.abc, router: '', text: ''),
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 }
 
-class _Encabezado extends StatelessWidget {
+class ContainerCard extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final String router;
+  const ContainerCard(
+      {Key? key, required this.text, required this.icon, required this.router})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        const IconHeader(
-          icon: FontAwesomeIcons.moneyBill1,
-          titulo: 'Bienvenid@',
-          subtitulo: 'Tus finanzas',
-          color1: Color(0xff536CF6),
-          color2: Color(0xff66A9F2),
+    return Container(
+      decoration: BoxDecoration(
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                offset: const Offset(4, 6),
+                blurRadius: 10),
+          ],
+          borderRadius: BorderRadius.circular(15),
+          gradient: const LinearGradient(colors: <Color>[
+            Colors.deepPurpleAccent,
+            Color.fromARGB(255, 58, 7, 179)
+          ])),
+      height: 100,
+      width: 150,
+      padding: const EdgeInsets.only(top: 15),
+      margin: const EdgeInsets.only(left: 10, right: 10, top: 30),
+      child: TextButton(
+        onPressed: () {
+          Navigator.pushNamed(context, router);
+        },
+        child: Column(
+          children: [
+            Icon(icon, color: Colors.amber, size: 30),
+            const SizedBox(height: 10),
+            Text(
+              text,
+              style: const TextStyle(color: Colors.white, fontSize: 15),
+            ),
+          ],
         ),
-        Positioned(
-            right: 0,
-            top: 45,
-            child: RawMaterialButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, 'home');
-                },
-                shape: const CircleBorder(),
-                padding: const EdgeInsets.all(15.0),
-                child: const FaIcon(FontAwesomeIcons.rightFromBracket,
-                    color: Colors.white)))
-      ],
+      ),
     );
   }
-}
-
-class ItemBoton {
-  final IconData icon;
-  final String texto;
-  final Color color1;
-  final Color color2;
-  final String widgetTo;
-
-  ItemBoton(this.icon, this.texto, this.color1, this.color2, this.widgetTo);
 }

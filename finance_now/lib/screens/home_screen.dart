@@ -25,8 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          SizedBox(height: 5),
-          LoginForms(),
+          const SizedBox(height: 5),
+          const LoginForms(),
         ],
       ),
     );
