@@ -1,6 +1,7 @@
 import 'package:finance_now/bloc/forms/login/login_cubit.dart';
 import 'package:finance_now/bloc/forms/movement/movement_cubit.dart';
-import 'package:finance_now/providers/user_provider.dart';
+import 'package:finance_now/providers/providers.dart';
+import 'package:finance_now/providers/records_provider.dart';
 import 'package:finance_now/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,6 +32,8 @@ class _FormContain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UserProvider>(context);
+    final categoryProvider = Provider.of<ParametricDataProvider>(context);
+    final recordsProvider = Provider.of<RecordsProvider>(context);
     final colors = Theme.of(context).colorScheme.primary;
 
     final loginCubi = context.watch<LoginCubit>();
@@ -79,7 +82,10 @@ class _FormContain extends StatelessWidget {
                     overlayColor: MaterialStateProperty.all<Color>(Colors.grey),
                   ),
                   onPressed: () async {
-                    loginCubi.onSubmit(userProvider).then((value) {
+                    loginCubi
+                        .onSubmit(
+                            userProvider, categoryProvider, recordsProvider)
+                        .then((value) {
                       if (value) {
                         Navigator.pushNamed(context, 'menu');
                       }

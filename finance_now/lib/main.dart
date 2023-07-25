@@ -1,6 +1,5 @@
-import 'package:finance_now/providers/financial_movement.dart';
-import 'package:finance_now/providers/category.dart';
-import 'package:finance_now/providers/user_provider.dart';
+import 'package:finance_now/providers/providers.dart';
+import 'package:finance_now/providers/records_provider.dart';
 import 'package:finance_now/router/app_routes.dart';
 import 'package:finance_now/screens/home_screen.dart';
 import 'package:finance_now/theme/app_theme.dart';
@@ -27,15 +26,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => Category()),
-        ChangeNotifierProvider(create: (_) => FinancialMovement()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => RecordsProvider()),
+        ChangeNotifierProvider(create: (_) => ParametricDataProvider()),
       ],
       child: MaterialApp(
           title: 'Flutter Demo',
           theme: AppTheme.ligthTheme,
           debugShowCheckedModeBanner: false,
-          home: HomeScreen(),
+          home: const HomeScreen(),
           routes: AppRoutes.getAppRoutes()),
     );
   }
