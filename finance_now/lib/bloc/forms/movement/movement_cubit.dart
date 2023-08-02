@@ -1,18 +1,21 @@
 import 'package:equatable/equatable.dart';
 import 'package:finance_now/infrastructure/inputs/inputs.dart';
-import 'package:finance_now/models/financial_data_model.dart';
-import 'package:finance_now/providers/financial_movement.dart';
+import 'package:finance_now/models/movement_model.dart';
+import 'package:finance_now/providers/records_provider.dart';
 import 'package:finance_now/shared/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-import 'package:intl/intl.dart';
 
 part 'movement_state.dart';
 
 class MovementCubit extends Cubit<MovementFormState> {
   MovementCubit() : super(const MovementFormState());
 
-  Future onSubmit(FinancialMovement movement) async {
+  void clearForm() {
+    emit(const MovementFormState());
+  }
+
+  Future onSubmit(RecordsProvider rp) async {
     emit(state.copyWith(
         formStatus: FormStatus.validating,
         description: DescriptionInput.dirty(state.description.value),
@@ -28,14 +31,14 @@ class MovementCubit extends Cubit<MovementFormState> {
           state.date,
         ])));
     if (state.isValid) {
-      await movement.newMovement(FinancialDataModel(
-          period: movement.period!,
+      await rp.addMovement(MovementModel(
+          codCategory: state.category.value,
+          codMovementType: state.type.value,
           details: state.description.value,
-          ammount: int.parse(state.amount.value),
-          type: state.type.value,
-          category: state.category.value,
-          dateOperation: DateFormat('dd/MM/yyyy').format(state.date.value)));
+          date: state.date.value,
+          value: int.parse(state.amount.value)));
       emit(state.copyWith(formStatus: FormStatus.reload));
+      clearForm();
       return true;
     }
     emit(state.copyWith(formStatus: FormStatus.invalid));

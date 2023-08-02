@@ -1,4 +1,3 @@
-import 'package:finance_now/models/financial_data_model.dart';
 import 'package:finance_now/providers/financial_movement.dart';
 import 'package:finance_now/shared/index.dart';
 

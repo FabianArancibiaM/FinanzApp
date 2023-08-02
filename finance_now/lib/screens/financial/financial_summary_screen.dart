@@ -27,8 +27,8 @@ class _FinancialSummaryScreenState extends State<FinancialSummaryScreen> {
               child: BotonGordo(
                 icon: FontAwesomeIcons.book,
                 texto: 'Ver detalle',
-                color1: Color.fromARGB(255, 105, 119, 245),
-                color2: Color.fromARGB(255, 124, 110, 245),
+                color1: const Color.fromARGB(255, 105, 119, 245),
+                color2: const Color.fromARGB(255, 124, 110, 245),
                 onPress: () {
                   Navigator.pushNamed(context, 'details-financial');
                 },

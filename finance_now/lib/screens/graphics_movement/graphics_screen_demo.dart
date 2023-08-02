@@ -53,7 +53,7 @@ class GraphicsScreenDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Charts Screen'),
+        title: const Text('Charts Screen'),
       ),
       body: SingleChildScrollView(
         child: Center(

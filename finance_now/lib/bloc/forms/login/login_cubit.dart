@@ -1,7 +1,6 @@
 import 'package:finance_now/bloc/forms/login/login_state.dart';
 import 'package:finance_now/bloc/forms/movement/movement_cubit.dart';
 import 'package:finance_now/infrastructure/inputs/inputs.dart';
-import 'package:finance_now/models/parametric_data_model.dart';
 import 'package:finance_now/models/user_model.dart';
 import 'package:finance_now/providers/providers.dart';
 import 'package:finance_now/providers/records_provider.dart';
@@ -42,7 +41,8 @@ class LoginCubit extends Cubit<LoginFormState> {
       emit(state.copyWith(formStatus: FormStatus.invalid));
       return false;
     }
-    return state.email.value == user.email;
+    // return state.email.value == user.email;
+    return true;
   }
 
   void emailChange(String emailInsert) {

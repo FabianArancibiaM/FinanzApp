@@ -13,7 +13,7 @@ class CategoryFormScreen extends StatelessWidget {
         title: const Text('Añadir categoria'),
       ),
       body: Container(
-          padding: EdgeInsets.only(left: 5, right: 5, top: 10),
+          padding: const EdgeInsets.only(left: 5, right: 5, top: 10),
           child: Column(children: [
             TextFormField(
               // obscureText: true, // Ofusca texto
@@ -28,11 +28,11 @@ class CategoryFormScreen extends StatelessWidget {
                 // icon: Icon(Icons.wordpress_sharp, color: colors.primary)
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.only(left: 40, right: 40),
               child: ElevatedButton(
-                child: Row(children: [
+                child: const Row(children: [
                   Icon(Icons.save_as_rounded),
                   SizedBox(width: 15),
                   Text('Guardar')

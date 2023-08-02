@@ -1,5 +1,6 @@
 import 'package:finance_now/bloc/forms/movement/movement_cubit.dart';
-import 'package:finance_now/providers/financial_movement.dart';
+import 'package:finance_now/providers/parametric_data_provider.dart';
+import 'package:finance_now/providers/records_provider.dart';
 import 'package:finance_now/shared/index.dart';
 import 'package:finance_now/widgets/index.dart';
 import 'package:flutter/cupertino.dart';
@@ -54,13 +55,22 @@ class _FormMovementScreenState extends State<FormMovementScreen> {
 class _RegisterForm extends StatelessWidget {
   _RegisterForm({Key? key}) : super(key: key);
 
-  final List<SelectorObject> listType = InfoConst().listType;
+  late List<SelectorObject> listType = [];
 
-  final List<SelectorObject> listCategory = InfoConst().listCategory;
+  late List<SelectorObject> listCategory = [];
 
   @override
   Widget build(BuildContext context) {
-    final financialProvider = Provider.of<FinancialMovement>(context);
+    final parametric = Provider.of<ParametricDataProvider>(context);
+    final recordsProvider = Provider.of<RecordsProvider>(context);
+    listCategory = [];
+    for (var e in parametric.listCategory) {
+      listCategory.add(SelectorObject(key: e.code, value: e.value));
+    }
+    listType = [];
+    for (var e in parametric.listTypeMovement) {
+      listType.add(SelectorObject(key: e.code, value: e.value));
+    }
     final colors = Theme.of(context).colorScheme.primary;
     final movementCubi = context.watch<MovementCubit>();
 
@@ -79,7 +89,7 @@ class _RegisterForm extends StatelessWidget {
               spinnerShow,
           child: Center(
               child: Container(
-            margin: EdgeInsets.only(top: 250),
+            margin: const EdgeInsets.only(top: 250),
             child: CircularProgressIndicator(
               strokeWidth: 8,
               valueColor: AlwaysStoppedAnimation<Color>(colors),
@@ -116,35 +126,37 @@ class _RegisterForm extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            CustomDropDownFormField(
-              label: 'Cateoria',
-              list: listCategory,
-              onChange: movementCubi.categoryChange,
-              errorMessage: category.errorMessages,
-              stateForm: movementCubi.state.formStatus,
-            ),
+            if (listCategory.isNotEmpty)
+              CustomDropDownFormField(
+                label: 'Cateoria',
+                list: listCategory,
+                onChange: movementCubi.categoryChange,
+                errorMessage: category.errorMessages,
+                stateForm: movementCubi.state.formStatus,
+              ),
             const SizedBox(
               height: 20,
             ),
-            CustomDropDownFormField(
-              label: 'Tipo',
-              list: listType,
-              onChange: movementCubi.typeChange,
-              errorMessage: type.errorMessages,
-              stateForm: movementCubi.state.formStatus,
-            ),
+            if (listCategory.isNotEmpty)
+              CustomDropDownFormField(
+                label: 'Tipo',
+                list: listType,
+                onChange: movementCubi.typeChange,
+                errorMessage: type.errorMessages,
+                stateForm: movementCubi.state.formStatus,
+              ),
             const SizedBox(
               height: 20,
             ),
             FilledButton.tonalIcon(
                 style: ButtonStyle(
                   textStyle: MaterialStateProperty.all<TextStyle>(
-                    TextStyle(fontSize: 16, color: Colors.white),
+                    const TextStyle(fontSize: 16, color: Colors.white),
                   ),
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.blue),
                   padding: MaterialStateProperty.all<EdgeInsets>(
-                    EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
                   ),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
@@ -157,7 +169,7 @@ class _RegisterForm extends StatelessWidget {
                   if (movementCubi.state.formStatus == FormStatus.validating) {
                     return;
                   }
-                  movementCubi.onSubmit(financialProvider).then((value) {
+                  movementCubi.onSubmit(recordsProvider).then((value) {
                     if (value) {
                       showDialog(
                           context: context,
@@ -199,12 +211,12 @@ class _RegisterForm extends StatelessWidget {
             FilledButton.tonalIcon(
                 style: ButtonStyle(
                   textStyle: MaterialStateProperty.all<TextStyle>(
-                    TextStyle(fontSize: 16, color: Colors.white),
+                    const TextStyle(fontSize: 16, color: Colors.white),
                   ),
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.blue),
                   padding: MaterialStateProperty.all<EdgeInsets>(
-                    EdgeInsets.symmetric(horizontal: 75, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 75, vertical: 10),
                   ),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
@@ -240,10 +252,6 @@ class _RegisterForm extends StatelessWidget {
                 ),
                 onPressed: () async {
                   spinnerShow = true;
-                  print(financialProvider.period);
-                  await financialProvider.loadDataUser();
-                  financialProvider.setPeriod();
-                  print(financialProvider.period);
                 },
                 icon: const Icon(Icons.restore),
                 label: const Text('Nuevo periodo')),

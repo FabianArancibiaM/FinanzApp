@@ -11,6 +11,7 @@ class UserProvider extends ChangeNotifier {
     userModel = UserModel(
         documentID: user.id,
         email: user.data()['correo'],
+        name: user.data()['nombre'],
         tipeUser: user.data()['tipo_usuario']);
     notifyListeners();
     return userModel;

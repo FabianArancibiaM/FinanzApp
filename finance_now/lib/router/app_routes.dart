@@ -13,11 +13,11 @@ class AppRoutes {
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
     return {
       'menu': (_) => const MenuScreen(),
-      'financial-sumary': (_) => FinancialSummaryScreen(),
-      'home': (_) => HomeScreen(),
+      'financial-sumary': (_) => const FinancialSummaryScreen(),
+      'home': (_) => const HomeScreen(),
       'graphics': (_) => const GraphicsScreen(),
       'graphics-demo': (_) => GraphicsScreenDemo(),
-      'graphics-category': (_) => CategoryScreen(),
+      'graphics-category': (_) => const CategoryScreen(),
       'form-mevement': (_) => const FormMovementScreen(),
       'form-category': (_) => const CategoryFormScreen(),
       'details-financial': (_) => const DetailsFinancialScreen(),

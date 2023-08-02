@@ -81,7 +81,7 @@ class _CustomDropDownFormFieldState extends State<CustomDropDownFormField> {
 
     return Row(
       children: [
-        if (widget.label != null)
+        if (widget.label != null && widget.list.isNotEmpty)
           Expanded(
             child: DropdownButtonFormField<SelectorObject>(
               value: widget.list.firstWhere(

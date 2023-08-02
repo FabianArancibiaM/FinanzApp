@@ -12,6 +12,10 @@ class ParametricDataProvider extends ChangeNotifier {
     var data = await getParametricDataFirebase();
     if (data == null) return false;
     var lstCategory = data.data()['Categorias'];
+    listCategory = [];
+    listTypeMovement = [];
+    listCategory.add(ParametricDataModel(code: '', value: 'Seleccionar'));
+    listTypeMovement.add(ParametricDataModel(code: '', value: 'Seleccionar'));
     lstCategory.forEach((element) {
       listCategory.add(ParametricDataModel(
           code: element['codigo'], value: element['valor']));
