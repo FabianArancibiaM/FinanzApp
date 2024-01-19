@@ -1,4 +1,3 @@
-import 'package:finance_now/providers/financial_movement.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:provider/provider.dart';
@@ -8,29 +7,28 @@ class BarChartSummary extends StatelessWidget {
 
   BarChartSummary({super.key});
 
-  _mappingDataView(FinancialMovement financialMovement) {
-    final List<double> values1 = [];
-    final List<double> values2 = [];
-    final list = financialMovement.list;
-    var green = 0;
-    var red = 0;
-    for (var value in list) {
-      if (value.type == 'A') {
-        green = green + value.ammount;
-      } else {
-        red = red + value.ammount;
-      }
-    }
-    values1.add(double.parse(green.toString()));
-    values2.add(double.parse(red.toString()));
-    return [values1, values2];
-  }
+  // _mappingDataView(FinancialMovement financialMovement) {
+  //   final List<double> values1 = [];
+  //   final List<double> values2 = [];
+  //   final list = financialMovement.list;
+  //   var green = 0;
+  //   var red = 0;
+  //   for (var value in list) {
+  //     if (value.type == 'A') {
+  //       green = green + value.ammount;
+  //     } else {
+  //       red = red + value.ammount;
+  //     }
+  //   }
+  //   values1.add(double.parse(green.toString()));
+  //   values2.add(double.parse(red.toString()));
+  //   return [values1, values2];
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<FinancialMovement>(
-        builder: (context, financialProvider, _) {
-      final update = _mappingDataView(financialProvider);
+    return Consumer(builder: (context, financialProvider, _) {
+      final update = null;
       final values1 = update[0];
       final values2 = update[1];
       return BarChart(

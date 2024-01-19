@@ -1,5 +1,4 @@
 import 'package:finance_now/models/financial_data_model.dart';
-import 'package:finance_now/providers/financial_movement.dart';
 import 'package:finance_now/shared/index.dart';
 
 import 'package:flutter/material.dart';
@@ -19,12 +18,12 @@ class _TableSummaryState extends State<TableSummary> {
 
   List<Map<String, dynamic>> tableData = [];
 
-  void deleteRow(int index, FinancialMovement financialProvider) async {
-    await financialProvider.deleteById(index);
-    setState(() {
-      tableData.removeWhere((element) => element['id'] == index);
-    });
-  }
+  // void deleteRow(int index, FinancialMovement financialProvider) async {
+  //   await financialProvider.deleteById(index);
+  //   setState(() {
+  //     tableData.removeWhere((element) => element['id'] == index);
+  //   });
+  // }
 
   void editRow(int index) {
     setState(() {
@@ -32,18 +31,18 @@ class _TableSummaryState extends State<TableSummary> {
     });
   }
 
-  void addDataList(FinancialMovement financialProvider) {
-    for (var element in financialProvider.list) {
-      if (tableData.isEmpty) {
-        addToList(element);
-      } else {
-        var first = tableData.where((dta) => dta['id'] == element.id);
-        if (first.isEmpty) {
-          addToList(element);
-        }
-      }
-    }
-  }
+  // void addDataList(FinancialMovement financialProvider) {
+  //   for (var element in financialProvider.list) {
+  //     if (tableData.isEmpty) {
+  //       addToList(element);
+  //     } else {
+  //       var first = tableData.where((dta) => dta['id'] == element.id);
+  //       if (first.isEmpty) {
+  //         addToList(element);
+  //       }
+  //     }
+  //   }
+  // }
 
   void addToList(FinancialDataModel element) {
     var category = listCategory.where((data) => data.key == element.category);
@@ -61,8 +60,8 @@ class _TableSummaryState extends State<TableSummary> {
 
   @override
   Widget build(BuildContext context) {
-    final financialProvider = Provider.of<FinancialMovement>(context);
-    addDataList(financialProvider);
+    // final financialProvider = Provider.of<FinancialMovement>(context);
+    // addDataList(financialProvider);
     if (tableData.isEmpty) {
       return Container();
     }
@@ -97,10 +96,9 @@ class _TableSummaryState extends State<TableSummary> {
                       Row(
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.delete),
-                            onPressed: () =>
-                                deleteRow(data['id'], financialProvider),
-                          ),
+                              icon: const Icon(Icons.delete), onPressed: () {}
+                              // deleteRow(data['id'], financialProvider),
+                              ),
                           IconButton(
                             icon: const Icon(Icons.edit),
                             onPressed: () => editRow(tableData.indexOf(data)),

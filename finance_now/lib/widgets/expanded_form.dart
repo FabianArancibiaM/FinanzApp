@@ -1,4 +1,3 @@
-import 'package:finance_now/providers/financial_movement.dart';
 import 'package:finance_now/shared/index.dart';
 
 import 'package:flutter/material.dart';
@@ -63,7 +62,7 @@ class _ExpandedFormState extends State<ExpandedForm> {
 
   @override
   Widget build(BuildContext context) {
-    final financialProvider = Provider.of<FinancialMovement>(context);
+    // final financialProvider = Provider.of<FinancialMovement>(context);
     return Container(
       padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
       child: Form(

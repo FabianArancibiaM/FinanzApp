@@ -1,6 +1,4 @@
-import 'package:finance_now/providers/financial_movement.dart';
 import 'package:finance_now/shared/index.dart';
-import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,9 +29,9 @@ class BarChartCategory extends StatelessWidget {
     );
     var maxAmount = 0;
 
-    return Consumer<FinancialMovement>(
-        builder: (context, financialProvider, _) {
-      final listPeriod = financialProvider.list;
+    return Consumer(builder: (context, financialProvider, _) {
+      final listPeriod = [];
+      //financialProvider.list;
       if (listPeriod.isNotEmpty) {
         for (var element in listPeriod) {
           var category =

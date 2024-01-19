@@ -1,5 +1,4 @@
 import 'package:finance_now/models/financial_data_model.dart';
-import 'package:finance_now/providers/financial_movement.dart';
 import 'package:finance_now/shared/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +17,13 @@ class _MovementSummaryState extends State<MovementSummary> {
   List<SelectorObject> listType = InfoConst().listType;
   List<SelectorObject> listCategory = InfoConst().listCategory;
 
-  void deleteRow(int index, FinancialMovement financialProvider) async {
-    await financialProvider.deleteById(index);
-    await financialProvider.getAllMovement();
-    setState(() {
-      tableData.removeWhere((element) => element['id'] == index);
-    });
-  }
+  // void deleteRow(int index, FinancialMovement financialProvider) async {
+  //   // await financialProvider.deleteById(index);
+  //   // await financialProvider.getAllMovement();
+  //   setState(() {
+  //     tableData.removeWhere((element) => element['id'] == index);
+  //   });
+  // }
 
   void editRow(int index) {
     setState(() {
@@ -32,22 +31,22 @@ class _MovementSummaryState extends State<MovementSummary> {
     });
   }
 
-  void addDataList(FinancialMovement financialProvider) {
-    if (financialProvider.list.isEmpty) {
-      tableData = [];
-      return;
-    }
-    for (var element in financialProvider.list) {
-      if (tableData.isEmpty) {
-        addToList(element);
-      } else {
-        var first = tableData.where((dta) => dta['id'] == element.id);
-        if (first.isEmpty) {
-          addToList(element);
-        }
-      }
-    }
-  }
+  // void addDataList(FinancialMovement financialProvider) {
+  //   if (financialProvider.list.isEmpty) {
+  //     tableData = [];
+  //     return;
+  //   }
+  //   for (var element in financialProvider.list) {
+  //     if (tableData.isEmpty) {
+  //       addToList(element);
+  //     } else {
+  //       var first = tableData.where((dta) => dta['id'] == element.id);
+  //       if (first.isEmpty) {
+  //         addToList(element);
+  //       }
+  //     }
+  //   }
+  // }
 
   void addToList(FinancialDataModel element) {
     var category = listCategory.where((data) => data.key == element.category);
@@ -69,8 +68,8 @@ class _MovementSummaryState extends State<MovementSummary> {
 
   @override
   Widget build(BuildContext context) {
-    final financialProvider = Provider.of<FinancialMovement>(context);
-    addDataList(financialProvider);
+    // final financialProvider = Provider.of<FinancialMovement>(context);
+    // addDataList(financialProvider);
 
     return Container(
       height: 400,
@@ -116,16 +115,16 @@ class _MovementSummaryState extends State<MovementSummary> {
                               context: context,
                               builder: (context) {
                                 return Modal(
-                                  amount: itm['details'],
-                                  title: itm['title'],
-                                  id: itm['id'],
-                                  icon: itm['icon'],
-                                  type: itm['type'],
-                                  date: itm['date'],
-                                  category: itm['category'],
-                                  onPressDelete: () =>
-                                      deleteRow(itm['id'], financialProvider),
-                                );
+                                    amount: itm['details'],
+                                    title: itm['title'],
+                                    id: itm['id'],
+                                    icon: itm['icon'],
+                                    type: itm['type'],
+                                    date: itm['date'],
+                                    category: itm['category'],
+                                    onPressDelete: () {}
+                                    // deleteRow(itm['id'], financialProvider),
+                                    );
                               });
                         });
                   },

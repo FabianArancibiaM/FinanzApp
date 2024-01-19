@@ -1,4 +1,3 @@
-import 'package:finance_now/providers/financial_movement.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -7,35 +6,35 @@ import 'package:provider/provider.dart';
 class PieChartSumary extends StatelessWidget {
   const PieChartSumary({Key? key}) : super(key: key);
 
-  static List<ChartData> createData(FinancialMovement financialProvider) {
-    final list = financialProvider.list;
-    double green = 0;
-    double yellow = 0;
-    double red = 0;
-    for (var value in list) {
-      if (value.type == 'A') {
-        green = green + value.ammount;
-      } else {
-        red = red + value.ammount;
-      }
-    }
+  // static List<ChartData> createData(FinancialMovement financialProvider) {
+  //   final list = financialProvider.list;
+  //   double green = 0;
+  //   double yellow = 0;
+  //   double red = 0;
+  //   for (var value in list) {
+  //     if (value.type == 'A') {
+  //       green = green + value.ammount;
+  //     } else {
+  //       red = red + value.ammount;
+  //     }
+  //   }
 
-    green = green - red;
-    if (green < 0) {
-      yellow = green * -1;
-      green = 1;
-    }
+  //   green = green - red;
+  //   if (green < 0) {
+  //     yellow = green * -1;
+  //     green = 1;
+  //   }
 
-    var data = [
-      ChartData('Gastos', red, Colors.red),
-      ChartData('Disponible', green, Colors.green),
-      // ChartData('Segmento 4', 35, Colors.orange),
-    ];
-    yellow > 0
-        ? data.add(ChartData('Sobre girado', yellow, Colors.yellow))
-        : null;
-    return data;
-  }
+  //   var data = [
+  //     ChartData('Gastos', red, Colors.red),
+  //     ChartData('Disponible', green, Colors.green),
+  //     // ChartData('Segmento 4', 35, Colors.orange),
+  //   ];
+  //   yellow > 0
+  //       ? data.add(ChartData('Sobre girado', yellow, Colors.yellow))
+  //       : null;
+  //   return data;
+  // }
 
   String formatValue(double value) {
     if (value == 1) {
@@ -51,12 +50,11 @@ class PieChartSumary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<FinancialMovement>(
-        builder: (context, financialProvider, _) {
-      final list = financialProvider.getAllMovementMonth();
-      if (list.isEmpty) {
-        return Container();
-      }
+    return Consumer(builder: (context, financialProvider, _) {
+      // final list = financialProvider.getAllMovementMonth();
+      // if (list.isEmpty) {
+      //   return Container();
+      // }
       return Container(
         child: AspectRatio(
           aspectRatio: 1,
@@ -64,7 +62,7 @@ class PieChartSumary extends StatelessWidget {
             tooltipBehavior: TooltipBehavior(enable: true),
             series: <CircularSeries>[
               PieSeries<ChartData, String>(
-                dataSource: createData(financialProvider),
+                dataSource: null, //createData(financialProvider),
                 xValueMapper: (ChartData data, _) => data.segment,
                 yValueMapper: (ChartData data, _) => data.value,
                 pointColorMapper: (ChartData data, _) => data.color,
