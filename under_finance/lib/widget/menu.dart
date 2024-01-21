@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:under_finance/components/footer_navigator.dart';
 import 'package:under_finance/components/header.dart';
-import 'package:under_finance/components/header_waves.dart';
 import 'package:under_finance/widget/add_movement.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -32,7 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
       body: Stack(children: [
         const HeaderScreen(),
         Container(
-          padding: EdgeInsets.only(top: 60),
+          padding: const EdgeInsets.only(top: 10),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: IndexedStack(

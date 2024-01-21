@@ -33,11 +33,11 @@ class _HeaderWaves extends CustomPainter {
 
     final path = new Path();
     // Dibujar con el path y el lapiz
-    path.lineTo(0, size.height * 0.15);
-    path.quadraticBezierTo(size.width * 0.25, size.height * 0.25,
-        size.width * 0.5, size.height * 0.20);
+    path.lineTo(0, size.height * 0.10);
+    path.quadraticBezierTo(size.width * 0.25, size.height * 0.20,
+        size.width * 0.5, size.height * 0.15);
     path.quadraticBezierTo(
-        size.width * 0.75, size.height * 0.15, size.width, size.height * 0.20);
+        size.width * 0.85, size.height * 0.1, size.width, size.height * 0.10);
     path.lineTo(size.width, 0);
     canvas.drawPath(path, lapiz);
   }

@@ -9,21 +9,26 @@ import 'package:flutter/material.dart';
 // #00B698
 
 class AppTheme {
-  static const Color primary = Color.fromRGBO(38, 251, 212, 1);
-  static const Color accentColor = Color.fromRGBO(30, 37, 46, 1);
-  static const Color backgroundColor = Color.fromRGBO(21, 25, 32, 1);
-  static const Color textColor = Color.fromRGBO(38, 251, 212, 1);
+  static const Color verde = Color.fromRGBO(29, 221, 186, 1);
+  static const Color blanco = Color.fromRGBO(255, 255, 255, 1);
+  static const Color amarillo = Color.fromRGBO(255, 255, 128, 1.0);
+  static const Color azul = Color.fromRGBO(0, 0, 102, 1.0);
+
+  static const Color primary = verde;
+  static const Color secondary = azul;
+  static const Color backgroundColor = blanco;
+  static const Color accentColor = blanco;
 
   static final ThemeData ligthTheme = ThemeData.light().copyWith(
     colorScheme: const ColorScheme.light(
         primary: primary,
-        secondary: Color.fromRGBO(21, 25, 32, 1),
-        background: Color.fromRGBO(30, 37, 46, 1),
+        secondary: secondary,
+        background: backgroundColor,
         surface: Color.fromARGB(255, 181, 63, 148),
         error: Colors.red,
-        onPrimary: Colors.tealAccent,
+        onPrimary: Colors.black87,
         onSecondary: Colors.purpleAccent,
-        onBackground: Colors.black,
+        onBackground: Color.fromARGB(255, 153, 30, 30),
         onSurface: Colors.black,
         onError: Colors.red,
         brightness: Brightness.light),

@@ -1,4 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:under_finance/components/dropdown_custom.dart';
+import 'package:under_finance/components/rounde_buttons.dart';
 
 class AddMovementScreen extends StatefulWidget {
   const AddMovementScreen({Key? key}) : super(key: key);
@@ -11,9 +15,8 @@ class _AddMovementScreenState extends State<AddMovementScreen> {
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).colorScheme.primary;
-    final background = Theme.of(context).colorScheme.secondary;
-    final List<String> items = ['Opción 1', 'Opción 2', 'Opción 3'];
-    String selectedValue = 'Opción 1';
+    final onPrimary = Theme.of(context).colorScheme.onPrimary;
+
     return Form(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -23,10 +26,10 @@ class _AddMovementScreenState extends State<AddMovementScreen> {
               height: 80,
             ),
             TextField(
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: onPrimary),
               decoration: InputDecoration(
                 labelText: 'Description',
-                labelStyle: TextStyle(color: primaryColor),
+                labelStyle: TextStyle(color: onPrimary),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: primaryColor),
                 ),
@@ -39,10 +42,10 @@ class _AddMovementScreenState extends State<AddMovementScreen> {
               height: 10,
             ),
             TextField(
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: onPrimary),
               decoration: InputDecoration(
-                labelText: 'Value',
-                labelStyle: TextStyle(color: primaryColor),
+                labelText: 'Monto',
+                labelStyle: TextStyle(color: onPrimary),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: primaryColor),
                 ),
@@ -54,73 +57,16 @@ class _AddMovementScreenState extends State<AddMovementScreen> {
             const SizedBox(
               height: 10,
             ),
-            TextField(
-              style: TextStyle(color: primaryColor),
-              decoration: InputDecoration(
-                labelText: 'Value',
-                labelStyle: TextStyle(color: primaryColor),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
+            Row(
+              children: [
+                Expanded(
+                  child: DropdownCustom(),
+                ), // Espaciado entre los widgets
+                Expanded(
+                  child: RoundedButtons(),
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
-                ),
-              ),
+              ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            TextField(
-              style: TextStyle(color: primaryColor),
-              decoration: InputDecoration(
-                labelText: 'Value',
-                labelStyle: TextStyle(color: primaryColor),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            DropdownButtonFormField<String>(
-              value: selectedValue,
-              dropdownColor: background,
-              style: TextStyle(color: primaryColor),
-              focusColor: background,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: background, // Color de fondo del listado
-                labelText: 'Selecciona una opción',
-                labelStyle: TextStyle(color: primaryColor),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
-                ),
-              ),
-              items: items.map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: TextStyle(color: primaryColor),
-                  ),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                if (newValue != null) {
-                  // Actualizar el valor seleccionado
-                  selectedValue = newValue;
-                  // Realizar acciones según la selección
-                  print('Opción seleccionada: $newValue');
-                }
-              },
-            ),
-            const SizedBox(
-              height: 10,
-            )
           ],
         ),
       ),
