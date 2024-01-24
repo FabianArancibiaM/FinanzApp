@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:under_finance/router/app_routes.dart';
 import 'package:under_finance/theme/app_theme.dart';
 import 'package:under_finance/widget/menu.dart';
@@ -13,12 +14,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: AppTheme.ligthTheme,
-        home: const MenuScreen(),
-        debugShowCheckedModeBanner: false,
-        routes: AppRoutes.getAppRoutes());
+    return MultiProvider(
+      providers: [],
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: AppTheme.ligthTheme,
+          home: const MenuScreen(),
+          debugShowCheckedModeBanner: false,
+          routes: AppRoutes.getAppRoutes()),
+    );
   }
 }
 

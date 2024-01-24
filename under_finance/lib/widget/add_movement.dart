@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:under_finance/components/dropdown_custom.dart';
 import 'package:under_finance/components/rounde_buttons.dart';
+import 'package:under_finance/components/table_add.dart';
 
 class AddMovementScreen extends StatefulWidget {
   const AddMovementScreen({Key? key}) : super(key: key);
@@ -17,57 +18,69 @@ class _AddMovementScreenState extends State<AddMovementScreen> {
     final primaryColor = Theme.of(context).colorScheme.primary;
     final onPrimary = Theme.of(context).colorScheme.onPrimary;
 
-    return Form(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 80,
-            ),
-            TextField(
-              style: TextStyle(color: onPrimary),
-              decoration: InputDecoration(
-                labelText: 'Description',
-                labelStyle: TextStyle(color: onPrimary),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Form(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 80,
+              ),
+              TextField(
+                style: TextStyle(color: onPrimary),
+                decoration: InputDecoration(
+                  labelText: 'Description',
+                  labelStyle: TextStyle(color: onPrimary),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            TextField(
-              style: TextStyle(color: onPrimary),
-              decoration: InputDecoration(
-                labelText: 'Monto',
-                labelStyle: TextStyle(color: onPrimary),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: primaryColor),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                style: TextStyle(color: onPrimary),
+                decoration: InputDecoration(
+                  labelText: 'Monto',
+                  labelStyle: TextStyle(color: onPrimary),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: DropdownCustom(),
-                ), // Espaciado entre los widgets
-                Expanded(
-                  child: RoundedButtons(),
-                ),
-              ],
-            ),
-          ],
+              const SizedBox(
+                height: 10,
+              ),
+              // Row(
+              //   children: [
+              //     Expanded(
+              //       child: DropdownCustom(),
+              //     ), // Espaciado entre los widgets
+              //     Expanded(
+              //       child: RoundedButtons(),
+              //     ),
+              //   ],
+              // ),
+              const DropdownCustom(),
+              const SizedBox(
+                height: 10,
+              ),
+              RoundedButtons(),
+              const SizedBox(
+                height: 10,
+              ),
+              TableAdd()
+            ],
+          ),
         ),
       ),
     );
