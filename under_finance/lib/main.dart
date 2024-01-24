@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:under_finance/provider/category_provider.dart';
+import 'package:under_finance/provider/movement_provider.dart';
+import 'package:under_finance/provider/type_movement_provider.dart';
 import 'package:under_finance/router/app_routes.dart';
 import 'package:under_finance/theme/app_theme.dart';
 import 'package:under_finance/widget/menu.dart';
@@ -15,7 +18,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [],
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => CategoryProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TypeMovementProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MovementProvider(),
+        )
+      ],
       child: MaterialApp(
           title: 'Flutter Demo',
           theme: AppTheme.ligthTheme,

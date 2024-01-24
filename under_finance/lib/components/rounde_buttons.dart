@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:under_finance/model/category_model.dart';
+import 'package:under_finance/model/type_movement_model.dart';
+import 'package:under_finance/provider/category_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:under_finance/provider/type_movement_provider.dart';
 
 class RoundedButtons extends StatefulWidget {
+  const RoundedButtons({super.key});
+
   @override
   _RoundedButtonsState createState() => _RoundedButtonsState();
 }
@@ -12,10 +19,14 @@ class _RoundedButtonsState extends State<RoundedButtons> {
 
   Color right = const Color.fromRGBO(214, 214, 214, 1);
   Color lefth = const Color.fromRGBO(214, 214, 214, 1);
+
   int btnSelected = 0;
+  late TypeMovementModel categorySelected;
 
   @override
   Widget build(BuildContext context) {
+    final category = context.watch<TypeMovementProvider>();
+    print(category.list);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -28,6 +39,7 @@ class _RoundedButtonsState extends State<RoundedButtons> {
               btnSelected = 1;
               lefth = buttonAdd;
               right = buttonDisable;
+              categorySelected = category.list[0];
             });
           },
         ),
@@ -40,6 +52,7 @@ class _RoundedButtonsState extends State<RoundedButtons> {
               btnSelected = 2;
               right = buttonRemove;
               lefth = buttonDisable;
+              categorySelected = category.list[1];
             });
           },
         ),

@@ -60,16 +60,6 @@ class _AddMovementScreenState extends State<AddMovementScreen> {
               const SizedBox(
                 height: 10,
               ),
-              // Row(
-              //   children: [
-              //     Expanded(
-              //       child: DropdownCustom(),
-              //     ), // Espaciado entre los widgets
-              //     Expanded(
-              //       child: RoundedButtons(),
-              //     ),
-              //   ],
-              // ),
               const DropdownCustom(),
               const SizedBox(
                 height: 10,

@@ -4,7 +4,8 @@ import 'package:under_finance/model/category_model.dart';
 class CategoryProvider extends ChangeNotifier {
   List<CategoryModel> list = [];
 
-  Future<List<CategoryModel>?> getAllTypeMovement() async {
+  Future<List<CategoryModel>?> getAllCategory() async {
+    list = [];
     list.add(CategoryModel(id: 1, name: 'Ahorro e Inversiones'));
     list.add(CategoryModel(id: 2, name: 'Transferencia'));
     list.add(CategoryModel(id: 3, name: 'Sueldo y Abonos'));

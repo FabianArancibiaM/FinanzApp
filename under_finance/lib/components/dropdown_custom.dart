@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:under_finance/provider/category_provider.dart';
 
 class DropdownCustom extends StatefulWidget {
   const DropdownCustom({Key? key}) : super(key: key);
@@ -10,29 +12,22 @@ class DropdownCustom extends StatefulWidget {
 class _DropdownCustomState extends State<DropdownCustom> {
   @override
   Widget build(BuildContext context) {
-    final List<ItemCustom> items = [
-      new ItemCustom(
-        icns: Icons.abc_rounded,
-        txt: 'Option 1',
-      ),
-      new ItemCustom(
-        icns: Icons.access_alarm_outlined,
-        txt: 'Option 2',
-      ),
-      new ItemCustom(
-        icns: Icons.account_balance_wallet_sharp,
-        txt: 'Option 3',
-      ),
-      new ItemCustom(
-        icns: Icons.account_circle,
-        txt: 'Option 4',
-      ),
-      new ItemCustom(
-        icns: Icons.add_card_sharp,
-        txt: 'Option 5',
-      )
-    ];
-    ItemCustom selectedValue = items[0];
+    final category = context.watch<CategoryProvider>();
+    print(category.list);
+    final List<ItemCustom> items = category.list
+        .map((e) => ItemCustom(
+              icns: Icons.abc_rounded,
+              txt: e.name,
+              id: e.id,
+            ))
+        .toList();
+    ItemCustom selectedValue = items.length > 0
+        ? items[0]
+        : ItemCustom(
+            icns: Icons.abc_rounded,
+            txt: 'Option 1',
+            id: 0,
+          );
     final onPrimary = Theme.of(context).colorScheme.onPrimary;
     final primary = Theme.of(context).colorScheme.primary;
     final background = Theme.of(context).colorScheme.background;
@@ -68,7 +63,9 @@ class _DropdownCustomState extends State<DropdownCustom> {
 class ItemCustom extends StatelessWidget {
   final IconData icns;
   final String txt;
-  const ItemCustom({Key? key, required this.icns, required this.txt})
+  final int id;
+  const ItemCustom(
+      {Key? key, required this.icns, required this.txt, required this.id})
       : super(key: key);
 
   @override

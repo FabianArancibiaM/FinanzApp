@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:under_finance/components/footer_navigator.dart';
 import 'package:under_finance/components/header.dart';
+import 'package:under_finance/provider/category_provider.dart';
+import 'package:under_finance/provider/type_movement_provider.dart';
 import 'package:under_finance/widget/add_movement.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -37,8 +40,8 @@ class _MenuScreenState extends State<MenuScreen> {
             child: IndexedStack(
               index: _currentIndex,
               children: const [
-                AddMovementScreen(),
                 Center(child: Text('Contenido de la pantalla de Business')),
+                AddMovementScreen(),
                 Center(child: Text('Contenido de la pantalla de School')),
               ],
             ),
@@ -52,6 +55,14 @@ class _MenuScreenState extends State<MenuScreen> {
           setState(() {
             _currentIndex = index;
           });
+          if (index == 1) {
+            final typeMovement =
+                Provider.of<TypeMovementProvider>(context, listen: false);
+            typeMovement.getAllTypeMovement();
+            final category =
+                Provider.of<CategoryProvider>(context, listen: false);
+            category.getAllCategory();
+          }
         },
       ),
     );
