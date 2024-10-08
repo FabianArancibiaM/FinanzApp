@@ -1,0 +1,113 @@
+Mis Notas
+Azul Marino (#2C3E50): Transmite confianza y seguridad, perfecto para botones principales o encabezados.
+Verde Esmeralda (#2ECC71): Representa éxito y crecimiento, ideal para indicar ganancias o mensajes positivos.
+Gris Claro (#ECF0F1): Aporta neutralidad y limpieza, perfecto para fondos o elementos secundarios.
+Blanco (#FFFFFF): Para mantener el diseño limpio y fácil de leer.
+Naranja Suave (#F39C12): Agrega un toque de energía y atención, útil para resaltar alertas o notificaciones importantes.
+
+1. Barra superior (Header)
+Logotipo/Nombre de la App: Ubicado a la izquierda, para recordación de marca.
+Ícono de Perfil o Ajustes: A la derecha para fácil acceso a configuraciones y datos personales.
+2. Resumen Financiero (Sección Principal)
+Saldo Actual: Al centro, destacado en un tamaño grande con texto claro y colores asociados a finanzas (como el azul o verde).
+Ingresos/Gastos del Mes: Debajo del saldo, con iconos simples que diferencien ambos y un esquema de colores (verde para ingresos y rojo/naranja para gastos).
+3. Gráfica de Resumen (Opcional)
+Una gráfica circular o de barras que muestre el desglose de gastos por categorías (alimentación, transporte, etc.), para un vistazo rápido de la situación financiera.
+Posicionada debajo del resumen financiero, ocupando un tercio del espacio inferior de la pantalla.
+4. Atajos a Funciones Clave
+Botones grandes e icónicos para acciones rápidas:
+Agregar Transacción
+Presupuestos
+Ahorros
+Inversiones
+Ubicados en una fila horizontal o en un menú flotante en la parte inferior, accesibles con el pulgar.
+5. Menú Inferior (Navegación)
+Menú de navegación con 4-5 íconos como:
+Inicio: Resumen principal.
+Transacciones: Detalle de movimientos recientes.
+Estadísticas: Análisis más profundo.
+Notificaciones: Alertas y recordatorios.
+Perfil: Configuraciones y ajustes.
+
+
+
+### 1. **Barra Superior (Header)**
+   - **Fondo**: Azul Marino (#2C3E50), para transmitir confianza.
+   - **Logotipo/Texto**: Blanco (#FFFFFF), para legibilidad.
+   - **Íconos de Perfil o Ajustes**: Gris Claro (#ECF0F1) o Blanco (#FFFFFF), destacándose en el fondo oscuro.
+
+### 2. **Resumen Financiero (Sección Principal)**
+   - **Fondo**: Blanco (#FFFFFF), para mantenerlo limpio y fácil de leer.
+   - **Saldo Actual**: Azul Marino (#2C3E50), para darle un toque serio y profesional.
+   - **Ingresos**: Verde Esmeralda (#2ECC71), resaltando positivamente.
+   - **Gastos**: Naranja Suave (#F39C12) o un tono ligeramente rojizo, para diferenciarlo claramente de los ingresos.
+
+### 3. **Gráfica de Resumen**
+   - **Fondo**: Blanco (#FFFFFF), para integrarse suavemente en el resto de la pantalla.
+   - **Colores de las Categorías**: Colores suaves pero contrastantes como:
+     - Verde Esmeralda (#2ECC71) para categorías positivas (como ahorros).
+     - Naranja Suave (#F39C12) o Rojo Suave para categorías de gasto importante.
+     - Gris Claro (#ECF0F1) para neutralidad en elementos menos relevantes.
+
+### 4. **Atajos a Funciones Clave**
+   - **Fondo de los botones**: Gris Claro (#ECF0F1), para mantener una jerarquía visual clara y evitar que compitan con el saldo y las transacciones.
+   - **Íconos o Texto**: Azul Marino (#2C3E50) para consistencia.
+   - **Botones Activos (ejemplo: "Agregar Transacción")**: Verde Esmeralda (#2ECC71) para resaltar las acciones importantes.
+
+### 5. **Menú Inferior (Navegación)**
+   - **Fondo**: Azul Marino (#2C3E50), alineado con la barra superior para un diseño cohesivo.
+   - **Íconos**: Blanco (#FFFFFF) para contraste y legibilidad.
+   - **Ícono Activo**: Verde Esmeralda (#2ECC71), para mostrar en qué sección está el usuario.
+
+### Distribución de colores clave:
+- **Elementos primarios (Saldo, botones importantes, gráficos)**: Azul Marino y Verde Esmeralda.
+- **Elementos secundarios (fondo, botones menos importantes)**: Gris Claro y Blanco.
+- **Resaltado o advertencias**: Naranja Suave o Rojo Suave para los gastos o alertas.
+
+--
+Estructura y Distribución de la Pantalla
+1. Barra Superior (Header)
+Título: “Agregar Transacción” centrado en la parte superior.
+Botón de Cierre (X): En la esquina superior derecha, para salir fácilmente.
+2. Selector de Tipo de Transacción (Ingreso o Gasto)
+Dos botones de selección en la parte superior:
+Ingreso: Botón a la izquierda con color Verde Esmeralda (#2ECC71).
+Gasto: Botón a la derecha con color Naranja Suave (#F39C12).
+Al seleccionar uno, cambia el color y la información se adapta según la opción.
+3. Campo de Cantidad
+Un campo de entrada prominente para la cantidad de la transacción.
+Diseño: Un cuadro blanco o gris claro (#ECF0F1) con bordes suaves.
+Texto placeholder: “Ingresa el monto” en un gris tenue.
+Si es un gasto, el borde o el fondo puede cambiar a Naranja Suave; si es ingreso, a Verde Esmeralda.
+4. Categoría de la Transacción
+Un menú desplegable para seleccionar la categoría (como "Alimentación", "Transporte", "Entretenimiento", "Salario", etc.).
+Iconos para cada categoría: Iconos visuales junto a cada categoría para hacerlo más intuitivo (por ejemplo, un carrito de compras para alimentación, un coche para transporte).
+Color: Utiliza íconos en Azul Marino (#2C3E50) sobre un fondo claro para consistencia visual.
+5. Fecha de la Transacción
+Campo para seleccionar la fecha, que por defecto será la actual pero se puede modificar.
+Botón de calendario o selector de fecha con un ícono pequeño junto al campo.
+Color: Texto en Gris Oscuro (#7F8C8D) para mantenerlo discreto.
+6. Comentarios o Notas (Opcional)
+Un campo de texto para agregar una breve nota o descripción adicional.
+Placeholder: “Añade una nota…” con texto en gris tenue.
+Diseño: Campo blanco con bordes sutiles en Gris Claro.
+7. Método de Pago
+Un menú para seleccionar el método de pago (tarjeta, efectivo, cuenta bancaria, etc.).
+Iconos pequeños para ayudar a identificar visualmente el método.
+Color: Fondo claro y texto en Azul Marino para mantener la consistencia.
+8. Botón de Confirmación
+Botón grande al final de la pantalla, centrado, con texto claro como “Agregar Transacción”.
+Color: Si es un ingreso, el botón será Verde Esmeralda (#2ECC71); si es un gasto, será Naranja Suave (#F39C12).
+Texto: Blanco para alto contraste y legibilidad.
+9. Botón de Cancelar (Opcional)
+Justo debajo del botón de confirmación, un pequeño botón de texto como “Cancelar”, en Gris Oscuro (#7F8C8D), para evitar sobresaturar la interfaz visualmente.
+Interacciones UX
+Validación en Tiempo Real: A medida que el usuario ingresa la cantidad o selecciona la categoría, el botón de confirmación puede activarse o cambiar de color.
+Transiciones Suaves: Al seleccionar "Ingreso" o "Gasto", el cambio de color del botón de confirmación y de otros elementos debe ser suave, para evitar distracciones.
+Flujo de Interacción
+El usuario abre la pantalla "Agregar Transacción".
+Selecciona si es un Ingreso o Gasto.
+Introduce el monto y selecciona una categoría.
+(Opcional) Agrega una nota y selecciona la fecha.
+Elige el método de pago.
+Confirma la transacción con el botón Agregar Transacción.
