@@ -1,0 +1,1 @@
+ /Users/thefunkopop/Documents/Mis\ proyectos/react_native/FinanzApp/Finance_Tracker/build/e29dd991f2067b064703ca3aad0a0694/dart_build_result.json: 
